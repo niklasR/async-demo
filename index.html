@@ -117,7 +117,7 @@ async.map(
         <div class="card-block">
           <h3 class="card-title text-uppercase">parallel</h3>
           <p class="card-text">
-            Runs several functions in parallel and collects all the results in an array<br/>
+            Runs several functions in parallel and collects all the results in an array or object if names<br/>
             Takes two arguments:
             <ul>
               <li>An array of asynchronous (cb) functions to run</li>
@@ -126,7 +126,7 @@ async.map(
           </p>
           <div class="card mb-2">
             <div class="card-header">
-              Code
+              Code (Array)
             </div>
             <div class="card-block">
               <pre class="card-text">
@@ -151,7 +151,41 @@ async.map(
           </div>
           <div class="card">
             <div class="card-header">
-              Output
+              Output (Array)
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>Episode number is 1; Programme number is 4</code></pre>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-header">
+              Code (Object)
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>async.parallel(
+  {
+    episodeNumber: (cb) => {
+      var episode = 'episode1';
+      var number = episode[episode.length - 1];
+      cb(null, number);
+    },
+    programmeNumber: (cb) => {
+      var programme = 'programme4'
+      var number = programme[programme.length - 1];
+      cb(null, number);
+    }
+  },
+  (error, result) => {
+    console.log('Episode number is ' + result.episodeNumber + '; Programme number is ' + result.programmeNumber);
+  }
+);</code></pre>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              Output (Array)
             </div>
             <div class="card-block">
               <pre class="card-text">
