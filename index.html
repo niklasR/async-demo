@@ -112,5 +112,54 @@ async.map(
         </div>
       </div>
 
+      <!-- CARD: PARALLEL -->
+      <div class="card mb-3">
+        <div class="card-block">
+          <h3 class="card-title text-uppercase">parallel</h3>
+          <p class="card-text">
+            Runs several functions in parallel and collects all the results in an array<br/>
+            Takes two arguments:
+            <ul>
+              <li>An array of asynchronous (cb) functions to run</li>
+              <li>A callback that takes the result of all the functions in an array</li>
+            </ul>
+          </p>
+          <div class="card mb-2">
+            <div class="card-header">
+              Code
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>async.parallel(
+  [
+    (cb) => {
+      var episode = 'episode1';
+      var number = episode[episode.length - 1];
+      cb(null, number);
+    },
+    (cb) => {
+      var programme = 'programme4'
+      var number = programme[programme.length - 1];
+      cb(null, number);
+    }
+  ],
+  (error, result) => {
+    console.log('Episode number is ' + result[0] + '; Programme number is ' + result[1]);
+  }
+);</code></pre>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              Output
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>Episode number is 1; Programme number is 4</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
    </body>
 </html>
