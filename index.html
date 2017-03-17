@@ -15,7 +15,9 @@
       <div class="card mb-3">
         <div class="card-block">
           <h3 class="card-title text-uppercase">map</h3>
-          <p class="card-text">Takes three arguments:
+          <p class="card-text">
+            Applies a set function a number of items in parallel and returns an array of the results.<br/>
+            Takes three arguments:
             <ul>
               <li>An array of items</li>
               <li>A function that takes two arguments:</li>
@@ -53,6 +55,57 @@ async.map(
             <div class="card-block">
               <pre class="card-text">
 <code>["nikles", "enna", "thomes"]</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD: WATERFALL -->
+      <div class="card mb-3">
+        <div class="card-block">
+          <h3 class="card-title text-uppercase">waterfall</h3>
+          <p class="card-text">
+            Runs several functions after one another, passing the results through.<br/>
+            Takes two arguments:
+            <ul>
+              <li>An array of asynchronous (cb) functions to run<br/>
+                Each function takes the arguments of the callback of the previous function<br/>
+                It stops as soon as one function passes an error to the callback<br/>
+              </li>
+              <li>A callback that takes the result of the last function</li>
+            </ul>
+          </p>
+          <div class="card mb-2">
+            <div class="card-header">
+              Code
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>async.waterfall(
+  [
+    (cb) => {
+      var episode = 'episode1';
+      var number = episode[episode.length - 1];
+      cb(null, number);
+    },
+    (number, cb) => {
+      var isGreatThan2 = number > 2;
+      cb(null, isGreatThan2);
+    }
+  ],
+  (error, result) => {
+    console.log('episode1 has a number greater than 2:', result);
+  }
+);</code></pre>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              Output
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>episode1 has a number greater than 2: false</code></pre>
             </div>
           </div>
         </div>
