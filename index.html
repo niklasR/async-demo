@@ -195,5 +195,44 @@ async.map(
         </div>
       </div>
 
+
+      <!-- CARD: APPLY -->
+      <div class="card mb-3">
+        <div class="card-block">
+          <h3 class="card-title text-uppercase">apply</h3>
+          <p class="card-text">
+            Takes an asynchronous function and arguments to run it with a callback<br/>
+            Takes two or more arguments:
+            <ul>
+              <li>An asynchronous (cb) function to run</li>
+              <li>The arguments the function takes, apart from the callback</li>
+            </ul>
+            This is often used as a shorthand with other async methods.
+          </p>
+          <div class="card mb-2">
+            <div class="card-header">
+              Code
+            </div>
+            <div class="card-block">
+              <pre class="card-text"><code>function getProgrammeNumber(programmeId, cb) {
+  var number = programmeId[programmeId.length - 1];
+  cb(null, number);
+}
+var appliedGetProgrammeNumber = async.apply(getProgrammeNumber, 'programme6');
+appliedGetProgrammeNumber((err, res) => {console.log('Programme number is ' + res);});</code></pre>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              Output
+            </div>
+            <div class="card-block">
+              <pre class="card-text">
+<code>Programme number is 6</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
    </body>
 </html>
