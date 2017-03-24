@@ -1,40 +1,45 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.1.5/async.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>ASYNC EXAMPLES</h1>
-      <p class="lead">some examples of async and its capabilities</p>
-      Async is loaded on this page, so all examples can be run on the console as is.
 
-      <!-- CARD: MAP -->
-      <div class="card mb-3 mt-3">
-        <div class="card-block">
-          <h3 class="card-title text-uppercase">map</h3>
-          <p class="card-text">
-            Applies a set function a number of items in parallel and returns an array of the results.<br/>
-            Takes three arguments:
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.1.5/async.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>ASYNC EXAMPLES</h1>
+    <p class="lead">some examples of async and its capabilities</p>
+    Async is loaded on this page, so all examples can be run on the console as is.
+
+    <!-- CARD: MAP -->
+    <div class="card mb-3 mt-3">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">map</h3>
+        <p class="card-text">
+          Applies a set function a number of items in parallel and returns an array of the results.<br/> Takes three arguments:
+          <ul>
+            <li>An array of items</li>
+            <li>A function that takes two arguments:</li>
             <ul>
-              <li>An array of items</li>
-              <li>A function that takes two arguments:</li>
-                <ul>
-                  <li>An item (which will be one of the array) which it transforms</li>
-                  <li>A callback that takes the transformed item</li>
-                </ul>
-              <li>A callback that takes the array of the transformed items</li>
+              <li>An item (which will be one of the array) which it transforms</li>
+              <li>A callback that takes the transformed item</li>
             </ul>
-          </p>
-          <div class="card mb-2">
-            <div class="card-header">
-              Code
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+            <li>A callback that takes the array of the transformed items</li>
+          </ul>
+        </p>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>var names = ['niklas','anna','thomas'];
 
 async.map(
@@ -47,41 +52,98 @@ async.map(
     console.log(result);
   }
 );</code></pre>
-            </div>
           </div>
-          <div class="card">
-            <div class="card-header">
-              Output
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Output
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>["nikles", "enna", "thomes"]</code></pre>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- CARD: WATERFALL -->
-      <div class="card mb-3">
-        <div class="card-block">
-          <h3 class="card-title text-uppercase">waterfall</h3>
-          <p class="card-text">
-            Runs several functions after one another, passing the results through.<br/>
-            Takes two arguments:
+    <!-- CARD: REDUCE -->
+    <div class="card mb-3 mt-3">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">reduce</h3>
+        <p class="card-text">
+          Similar to waterfall, except it applies the same function again and again to each object in n array, carrying forward the
+          output of the previous invocation.<br/> Takes three arguments:
+          <ul>
+            <li>An array of items to apply the function to</li>
+            <li>The initial value the function should start with</li>
+            <li>A function that takes three arguments:</li>
             <ul>
-              <li>An array of asynchronous (cb) functions to run<br/>
-                Each function takes the arguments of the callback of the previous function<br/>
-                It stops as soon as one function passes an error to the callback<br/>
+              <li>The result of the previous invocation. Async docs call this the 'memo'. On first invocation it's the intial
+                value.
               </li>
-              <li>A callback that takes the result of the last function</li>
+              <li>The current item</li>
+              <li>A callback that takes the result and provices that as the new 'result of the previous invocation' aka memo.</li>
             </ul>
-          </p>
-          <div class="card mb-2">
-            <div class="card-header">
-              Code
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+            <li>A callback that takes final result</li>
+          </ul>
+        </p>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
+<code>var names = ['niklas','anna','anna'];
+
+async.reduce(
+  names,
+  {},
+  (nameCount, currentName, callback) => {
+    if (nameCount[currentName]) {
+      nameCount[currentName]++;
+    } else {
+      nameCount[currentName] = 1;
+    }
+    callback(null, nameCount);
+  },
+  (error, result) => {
+    console.log(result);
+  }
+);
+</code></pre>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Output
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
+<code>{niklas: 1, anna: 2}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: WATERFALL -->
+    <div class="card mb-3">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">waterfall</h3>
+        <p class="card-text">
+          Runs several functions after one another, passing the results through.<br/> Takes two arguments:
+          <ul>
+            <li>An array of asynchronous (cb) functions to run<br/> Each function takes the arguments of the callback of the
+              previous function<br/> It stops as soon as one function passes an error to the callback<br/>
+            </li>
+            <li>A callback that takes the result of the last function</li>
+          </ul>
+        </p>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>async.waterfall(
   [
     (cb) => {
@@ -98,38 +160,37 @@ async.map(
     console.log('episode1 has a number greater than 2:', result);
   }
 );</code></pre>
-            </div>
           </div>
-          <div class="card">
-            <div class="card-header">
-              Output
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Output
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>episode1 has a number greater than 2: false</code></pre>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- CARD: PARALLEL -->
-      <div class="card mb-3">
-        <div class="card-block">
-          <h3 class="card-title text-uppercase">parallel</h3>
-          <p class="card-text">
-            Runs several functions in parallel and collects all the results in an array or object if names<br/>
-            Takes two arguments:
-            <ul>
-              <li>An array of asynchronous (cb) functions to run</li>
-              <li>A callback that takes the result of all the functions in an array</li>
-            </ul>
-          </p>
-          <div class="card mb-2">
-            <div class="card-header">
-              Code (Array)
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+    <!-- CARD: PARALLEL -->
+    <div class="card mb-3">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">parallel</h3>
+        <p class="card-text">
+          Runs several functions in parallel and collects all the results in an array or object if names<br/> Takes two arguments:
+          <ul>
+            <li>An array of asynchronous (cb) functions to run</li>
+            <li>A callback that takes the result of all the functions in an array</li>
+          </ul>
+        </p>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code (Array)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>async.parallel(
   [
     (cb) => {
@@ -147,23 +208,23 @@ async.map(
     console.log('Episode number is ' + result[0] + '; Programme number is ' + result[1]);
   }
 );</code></pre>
-            </div>
           </div>
-          <div class="card mb-4">
-            <div class="card-header">
-              Output (Array)
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+            Output (Array)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>Episode number is 1; Programme number is 4</code></pre>
-            </div>
           </div>
-          <div class="card mb-2">
-            <div class="card-header">
-              Code (Object)
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+        </div>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code (Object)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>async.parallel(
   {
     episodeNumber: (cb) => {
@@ -181,58 +242,140 @@ async.map(
     console.log('Episode number is ' + result.episodeNumber + '; Programme number is ' + result.programmeNumber);
   }
 );</code></pre>
-            </div>
           </div>
-          <div class="card">
-            <div class="card-header">
-              Output (Array)
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Output (Array)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>Episode number is 1; Programme number is 4</code></pre>
-            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- CARD: SERIES -->
+    <div class="card mb-3">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">series</h3>
+        <p class="card-text">
+          Just like parallel, butit runs several functions in series and collects all the results in an array or object if names<br/>          Takes two arguments:
+          <ul>
+            <li>An array of asynchronous (cb) functions to run</li>
+            <li>A callback that takes the result of all the functions in an array</li>
+          </ul>
+        </p>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code (Array)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
+<code>async.series(
+  [
+    (cb) => {
+      var episode = 'episode1';
+      var number = episode[episode.length - 1];
+      cb(null, number);
+    },
+    (cb) => {
+      var programme = 'programme4'
+      var number = programme[programme.length - 1];
+      cb(null, number);
+    }
+  ],
+  (error, result) => {
+    console.log('Episode number is ' + result[0] + '; Programme number is ' + result[1]);
+  }
+);</code></pre>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+            Output (Array)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
+<code>Episode number is 1; Programme number is 4</code></pre>
+          </div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code (Object)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
+<code>async.series(
+  {
+    episodeNumber: (cb) => {
+      var episode = 'episode1';
+      var number = episode[episode.length - 1];
+      cb(null, number);
+    },
+    programmeNumber: (cb) => {
+      var programme = 'programme4'
+      var number = programme[programme.length - 1];
+      cb(null, number);
+    }
+  },
+  (error, result) => {
+    console.log('Episode number is ' + result.episodeNumber + '; Programme number is ' + result.programmeNumber);
+  }
+);</code></pre>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Output (Array)
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
+<code>Episode number is 1; Programme number is 4</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-      <!-- CARD: APPLY -->
-      <div class="card mb-3">
-        <div class="card-block">
-          <h3 class="card-title text-uppercase">apply</h3>
-          <p class="card-text">
-            Takes an asynchronous function and arguments to run it with a callback<br/>
-            Takes two or more arguments:
-            <ul>
-              <li>An asynchronous (cb) function to run</li>
-              <li>The arguments the function takes, apart from the callback</li>
-            </ul>
-            This is often used as a shorthand with other async methods.
-          </p>
-          <div class="card mb-2">
-            <div class="card-header">
-              Code
-            </div>
-            <div class="card-block">
-              <pre class="card-text"><code>function getProgrammeNumber(programmeId, cb) {
+    <!-- CARD: APPLY -->
+    <div class="card mb-3">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">apply</h3>
+        <p class="card-text">
+          Takes an asynchronous function and arguments to run it with a callback<br/> Takes two or more arguments:
+          <ul>
+            <li>An asynchronous (cb) function to run</li>
+            <li>The arguments the function takes, apart from the callback</li>
+          </ul>
+          This is often used as a shorthand with other async methods.
+        </p>
+        <div class="card mb-2">
+          <div class="card-header">
+            Code
+          </div>
+          <div class="card-block">
+            <pre class="card-text"><code>function getProgrammeNumber(programmeId, cb) {
   var number = programmeId[programmeId.length - 1];
   cb(null, number);
 }
 var appliedGetProgrammeNumber = async.apply(getProgrammeNumber, 'programme6');
 appliedGetProgrammeNumber((err, res) => {console.log('Programme number is ' + res);});</code></pre>
-            </div>
           </div>
-          <div class="card">
-            <div class="card-header">
-              Output
-            </div>
-            <div class="card-block">
-              <pre class="card-text">
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Output
+          </div>
+          <div class="card-block">
+            <pre class="card-text">
 <code>Programme number is 6</code></pre>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
-   </body>
+</body>
+
 </html>
